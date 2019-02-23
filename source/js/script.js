@@ -304,6 +304,6 @@ for (let i = 0; i < comments.length; i++) {
   //   return text;
   // }
 
-  $('.nPost-content').trumbowyg();
+  $('.article-content').trumbowyg();
 
 }());
