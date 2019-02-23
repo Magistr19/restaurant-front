@@ -76,6 +76,48 @@
     }
 }
 
+@media (max-width: $tablet-size-max) {
+  .news__wrapper {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .news {
+    width: 300px;
+  }
+
+  .news__image {
+    width: 300px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .news--main {
+    width: 100%;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+
+    .news__image {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
+    }
+
+    .news__wrapper {
+      margin-left: 0;
+    }
+
+    .news__description {
+      text-align: center;
+    }
+  }
+}
+
 /* Стили для неактивного модального окна */
 .modal {
     background: #fff;

@@ -10,7 +10,7 @@
     &--dropdown {
         position: relative;
         margin-right: 40px;
-        &::after{ 
+        &::after{
             content: '';
             position: absolute;
             border-color: $light-color;
@@ -35,11 +35,48 @@
         width: 100%;
         background-color: white;
         margin: 0 auto;
-        
+
         li {
             margin-bottom: 7px;
             text-align: center;
             font-size: 20px;
         }
     }
+}
+
+@media (max-width: $tablet-size-max) {
+  .link {
+
+    a {
+      font-size: 30px;
+      line-height: 40px;
+      display: block;
+      width: 100%;
+      background-color: darken($light-color, 15);
+      color: darken($light-color, 40);
+      text-align: center;
+      border-bottom: 1px solid lighten($light-color,10);
+      transition: opacity 0.2s ease-in;
+
+      &:hover,
+      &:focus {
+        opacity: 0.8;
+      }
+
+      &:active {
+        opacity: 0.6;
+        color: darken($light-color, 60);
+      }
+    }
+
+    &--dropdown {
+      margin-right: 0;
+
+      &::after {
+        right: calc(50% - 85px);
+        top: 18px;
+        border-top-color: darken($light-color, 40);
+      }
+    }
+  }
 }
