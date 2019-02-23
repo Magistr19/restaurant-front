@@ -26,7 +26,6 @@ $(document).ready(function() {
   $("#close2").click(function() {
     $("#modal-register").toggle();
   });
-
 });
 
 axios.get('http://151.80.70.47/orange/public/api/comments')
@@ -278,5 +277,7 @@ for (let i = 0; i < comments.length; i++) {
   //   for (var i in chars) { text = text.replace(new RegExp(i, 'g'), chars[i]); }
   //   return text;
   // }
+
+  $('.nPost-content').trumbowyg();
 
 }());

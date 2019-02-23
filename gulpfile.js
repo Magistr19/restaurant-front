@@ -25,7 +25,7 @@ var reload = server.reload;
 var htmlmin = require("gulp-htmlmin");
 
 /* Минификация CSS */
-var minify = require("gulp-csso");
+// var minify = require("gulp-csso");
 
 /* Конкатенация отдельных файлов в единый */
 var concat = require('gulp-concat');
@@ -84,9 +84,9 @@ gulp.task("style", function() {
     .pipe(postcss([
       autoprefixer()
     ]))
-    .pipe(minify({
-      restructure: false          /*Отключаем смешивание общих стилей, чтобы не страдать*/
-    }))
+    // .pipe(minify({
+    //   restructure: false          /*Отключаем смешивание общих стилей, чтобы не страдать*/
+    // }))
     .pipe(gulp.dest("./build/css"))
     .pipe(server.stream());
 });
@@ -110,7 +110,7 @@ gulp.task("images", function() {
     .pipe(imagemin([    /* imagemin сам по себе содержит в себе множество плагинов (работа с png,svg,jpg и тд) */
       imagemin.optipng({optimizationLevel: 3}),  /* 1 - максимальное сжатие, 3 - безопасное сжатие, 10 - без сжатия */
       imagemin.jpegtran({progressive: true}),    /* прогрессивная загрузка jpg (изображение постепенно прорисовывается при загрузке) */
-      imagemin.svgo()   /*Минификация svg от лишних тегов*/
+      // imagemin.svgo()   /*Минификация svg от лишних тегов*/
       ]))
     .pipe(gulp.dest("./build/img"));
 });

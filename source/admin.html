@@ -28,10 +28,14 @@
         </div>
     </header>
     <main class="admin-main">
+
+
         <section class="add-article-tab  hidden">
             <button class="back-to-news">back to news tab</button>
+
             <form action="" class="add-article-form">
                 <label>Article name<input type="text"></label>
+
                 <div class="category-wrapper">
                     <label>Category
                       <select class="categories-select">
@@ -41,14 +45,20 @@
                   <button class="add-category">+ add category</button>
                 </div>
 
+
                 <label>Article picture<input type="file"></label>
+
                 <label>
                     Article text
-                    <textarea></textarea>
+                    <div class="nPost-content"></div>
                 </label>
+
                 <button class="submit-article" type="submit">add article</button>
             </form>
+
         </section>
+
+
 
         <section class="news-list-tab">
             <form class="search-form" action="">
@@ -132,8 +142,7 @@
   </template>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+    <script src="js/trumbowyg.min.js"></script>
     <script src="js/script.min.js"></script>
-
 </body>
 </html>
