@@ -1,0 +1,34 @@
+.comment {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.comment__wrapper {
+    border: 1px solid #979797;
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+.comment__desc {
+    display: flex;
+	/*justify-content: */
+	align-items: center;
+}
+
+.comment__desc-avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: rgba(74, 144, 226, 0.5);
+}
+
+.comment__desc-header {
+	font-size: 24px;
+	margin-left: 25px;
+}
+
+.comment__content {
+	margin-top: 10px;
+}
