@@ -60,7 +60,7 @@ for (let i = 0; i < comments.length; i++) {
         "author": "Armin",
         "created": "30.11.18",
         "edited": "30.11.18",
-        "active": true,
+        "active": false,
         "isMain": false
     },
     {
@@ -105,6 +105,10 @@ for (let i = 0; i < comments.length; i++) {
   var newsTable = document.querySelector('.news-table');
   var addNews = document.querySelector('.add-news-button');
   var backToNews = document.querySelector('.back-to-news');
+  var submitArticleButton = document.querySelector('.submit-article');
+  var categoreisSelect = document.querySelector('.categories-select');
+  var addCategoryButton = document.querySelector('.add-category');
+  var newCategoryName = document.querySelector('.new-category-name');
 
   addNews.addEventListener("click", function (e) {
     e.preventDefault();
@@ -118,10 +122,31 @@ for (let i = 0; i < comments.length; i++) {
     newsListTab.classList.toggle("hidden");
   });
 
-  newsTable.addEventListener("click", function (e) {
+  submitArticleButton.addEventListener("click", function(e) {
     e.preventDefault();
+    axios.post('http://151.80.70.47/orange/public/api/create', {
+      firstName: 'Fred',
+      lastName: 'Flintstone'
+    })
+    .then(function (response) {
+      // handle success
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      console.log('always');
+      // always executed
+    });
+
+  });
+
+  newsTable.addEventListener("click", function (e) {
     if (e.target.classList.contains("delete")) {
         console.log("delete", e.target.getAttribute("data-id"));
+        e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
     };
     if (e.target.classList.contains("edit")) {
         console.log("edit", e.target.getAttribute("data-id"));
@@ -131,8 +156,14 @@ for (let i = 0; i < comments.length; i++) {
     };
     if (e.target.classList.contains("is-main")) {
       console.log("is-main", e.target.getAttribute("data-id"));
+      var exIsMain = newsTable.querySelector(".is-main-checkbox");
+      exIsMain.checked = false;
+      exIsMain.classList.remove("is-main-checkbox");
+      e.target.classList.add("is-main-checkbox");
     };
   });
+
+  addCategoryButton.addEventListener("click", addCategory(newCategoryName.value));
 
   function renderNews(tableToAppend) {
     var template = document.querySelector('.template');
@@ -159,6 +190,9 @@ for (let i = 0; i < comments.length; i++) {
         edited.textContent = parsedResponse[i].edited;
         isActive.checked = parsedResponse[i].active;
         isMain.checked = parsedResponse[i].isMain;
+        if(parsedResponse[i].isMain) {
+          isMain.classList.add("is-main-checkbox");
+        };
         isMain.setAttribute("data-id", parsedResponse[i].id);
         isActive.setAttribute("data-id", parsedResponse[i].id);
         deleteArticle.setAttribute("data-id", parsedResponse[i].id);
@@ -171,18 +205,56 @@ for (let i = 0; i < comments.length; i++) {
 
   renderNews(newsTable);
 
-  axios.get('https://api.chucknorris.io/jokes/categories')
-  .then(function (response) {
-    // handle success
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    console.log('always');
-    // always executed
-  });
-  console.log("log me");
+  function updateCategories() {
+    axios.get('http://151.80.70.47/orange/public/api/category/all')
+    .then(function (response) {
+      console.log(response.data);
+      for(var i = 0; i < response.data.length; i++) {
+        var option = document.createElement("option");
+        option.setAttribute("value", "bbb");
+        option.textContent = response.data[i].name;
+        categoreisSelect.appendChild(option);
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
+
+  updateCategories();
+
+  function addCategory(categoryName) {
+    if (!categoryName) return;
+    axios.post('http://151.80.70.47/orange/public/api/category/create', {name: categoryName})
+    .then(function (response) {
+      console.log("post category response: ", response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
+
+  // addCategory();
+
+  // axios.get('http://151.80.70.47/orange/public/api/category/all')
+  // .then(function (response) {
+  //   console.log(response);
+  // })
+  // .catch(function (error) {
+  //   // handle error
+  //   console.log(error);
+  // })
+  // .then(function () {
+  //   console.log('always');
+  //   // always executed
+  // });
+
+  // var rus = "щ   ш  ч  ц  ю  я  ё  ж  ъ  ы  э  а б в г д е з и й к л м н о п р с т у ф х ь".split(/ +/g);
+  // var eng = "shh sh ch cz yu ya yo zh - i e a b v g d e z i j k l m n o p r s t u f x -".split(/ +/g);
+  // var chars = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya', 'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'YO', 'Ж': 'ZH', 'З': 'Z', 'И': 'I', 'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N', 'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U', 'Ф': 'F', 'Х': 'H', 'Ц': 'C', 'Ч': 'CH', 'Ш': 'SH', 'Щ': 'SHCH', 'Ъ': '', 'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'YU', 'Я': 'YA'};
+  // function translit(text) {
+  //   for (var i in chars) { text = text.replace(new RegExp(i, 'g'), chars[i]); }
+  //   return text;
+  // }
+
 }());
