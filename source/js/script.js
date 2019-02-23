@@ -29,6 +29,25 @@ $(document).ready(function() {
 
 });
 
+axios.get('http://151.80.70.47/orange/public/api/comments')
+  .then((res) => {
+    res.data.map(item => {
+      // console.log(item)
+      $('#comments').append(`
+        <div class="comment">
+          <div class="comment__wrapper">
+            <div class="comment__desc">
+              <div class="comment__desc-avatar"></div>
+              <div class="comment__desc-header">${item.user.name}</div>
+            </div>
+            <p class="comment__content">${item.comment}</p>
+          </div>
+        </div>
+      `);
+    })
+  })
+  .catch((err) => console.log(err))
+
 //Комменты
 
 let comments = document.querySelectorAll('.comment');
@@ -44,8 +63,8 @@ for (let i = 0; i < comments.length; i++) {
    wrapperEl.style.marginTop = '0px';
    wrapperEl.style.marginLeft = '40px';
 
-    if (parentEl.parentNode.classList.contains('comment')) {// И там еще выше есть коммент  
-      wrapperEl.style.marginLeft = '80px'; //3-ий уровень вложености 
+    if (parentEl.parentNode.classList.contains('comment')) {// И там еще выше есть коммент
+      wrapperEl.style.marginLeft = '80px'; //3-ий уровень вложености
     }
   }
 }

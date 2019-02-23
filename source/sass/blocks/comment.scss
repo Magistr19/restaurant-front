@@ -1,6 +1,7 @@
 .comment {
+  width: 100%;
 	max-width: 1200px;
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 .comment__wrapper {
@@ -12,9 +13,9 @@
 }
 
 .comment__desc {
-    display: flex;
+  display: flex;
 	/*justify-content: */
-	align-items: center;
+  align-items: center;
 }
 
 .comment__desc-avatar {
@@ -30,5 +31,5 @@
 }
 
 .comment__content {
-	margin-top: 10px;
+  margin-top: 10px;
 }

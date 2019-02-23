@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Новости одесских ресторанов</title>
-  <link rel="preload" href="scc/style.min.css" as="style">
+  <link rel="preload" href="scc/style.min.css" type="text/css" as="style">
   <link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 <body class="no-js">
@@ -35,7 +35,7 @@
 		<p class="post__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam rem architecto qui accusamus tempora dignissimos, voluptas, sint, similique iure laborum nobis inventore? Similique vitae aut sed delectus ducimus maiores corporis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam rem architecto qui accusamus tempora dignissimos, voluptas, sint, similique iure laborum nobis inventore? Similique vitae aut sed delectus ducimus maiores corporis.</p>
 	</section>
 
-	<section class="commentBlock">
+	<section class="commentBlock" id="comments">
 		<h2 class="commentBlock__header">Comments</h2>
 			<div class="comment">  <!-- № 1 Один элемент коммент -->
 				<div class="comment__wrapper">
@@ -130,7 +130,7 @@
 				</div>
 			</div>
 	</section>
-	
+
 	<footer class="footer">
 		<div class="footer__wrapper">
 			<ul class="footer__socials">
@@ -159,7 +159,7 @@
 		  </form>
 		</div>
 	  </div>
-  
+
 	  <div class="modalWindow" id="modal-register">
 		  <div class="modalWindow-content">
 			<div class="close" id="close2"></div>
@@ -175,8 +175,9 @@
 			  <button class="modalWindow-content__button" id="close">Register</button>
 			</form>
 		  </div>
-		</div>
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
     <script src="js/script.min.js"></script>
 </body>
 </html>
