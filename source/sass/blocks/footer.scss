@@ -1,8 +1,18 @@
 .footer {
+    padding: 27px 0;
+    border-top: 1px solid #979797;
+    border-bottom: 1px solid #979797;
+}
+
+.footer__wrapper {
     display: flex;
     align-items: center;
-    padding: 27px 40px;
-    border: 1px solid #979797;
+    width: $content-width;
+    box-sizing: border-box;
+    padding-left: $side-gutter;
+    padding-right: $side-gutter;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer__socials {
@@ -18,7 +28,4 @@
 
 .footer__logo {
     margin-left: auto;
-	width: 270px;
-	height: 46px;
-	background-color: rgba(74, 144, 226, 0.5);
 }
