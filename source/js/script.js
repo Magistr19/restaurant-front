@@ -163,7 +163,10 @@ for (let i = 0; i < comments.length; i++) {
     };
   });
 
-  addCategoryButton.addEventListener("click", addCategory(newCategoryName.value));
+  addCategoryButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    addCategory(newCategoryName.value)
+  });
 
   function renderNews(tableToAppend) {
     var template = document.querySelector('.template');
