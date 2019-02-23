@@ -43,6 +43,7 @@
 	flex-direction: column;
 	margin-bottom: 100px;
 	width: $content-width;
+	box-sizing: border-box;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -50,6 +51,7 @@
 .commentBlock-header {
 	text-align: center;
 	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .comment {
@@ -58,6 +60,8 @@
 	margin: 0 auto;
 	margin-top: 30px;
 	padding: 20px;
+	margin-left: $side-gutter;
+	margin-right: $side-gutter;
 }
 
 .comment-info {
