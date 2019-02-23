@@ -21,3 +21,10 @@
 .posts__items {
     margin-left: $side-gutter;
 }
+
+@media (max-width: $tablet-size-max) {
+  .posts__list {
+    justify-content: space-between;
+  }
+}
+

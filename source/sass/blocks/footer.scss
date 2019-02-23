@@ -30,3 +30,15 @@
 .footer__logo {
     margin-left: auto;
 }
+
+@media (max-width: $tablet-size-max) {
+  .footer__socials {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 27px;
+  }
+
+  .footer__logo {
+    margin-right: auto;
+  }
+}
