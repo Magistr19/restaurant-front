@@ -9,14 +9,24 @@
   <link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 <body class="no-js">
-  <header class="header">
-    <div class="header__logo"></div>
-		<ul class="header__links">
-			<li class="link header__link"><a href="#">Category</a></li>
-			<li class="link header__link"><a href="#">About</a></li>
-			<li class="link header__link"><a href="#">Signup/Login</a></li>
-		</ul>
-  </header>
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="header__logo">
+                <img src="img/270x46.jpg" alt="Лого">
+            </div>
+            <ul class="header__links">
+                <li class="link link--dropdown header__link">
+                    <a href="#">Category</a>
+                    <ul class="link-categories">
+                        <li><a href="#">category</a></li>
+                        <li><a href="#">catrgory</a></li>
+                    </ul>
+                </li>
+                <li class="link header__link"><a href="#">About</a></li>
+                <li class="link header__link signup"><a href="#" id="login">Signup/Login</a></li>
+            </ul>
+        </div>
+    </header>
     <main class="admin-main">
         <section class="add-article-tab  hidden">
             <button class="back-to-news">back to news tab</button>
@@ -30,18 +40,18 @@
                 <button class="" type="submit">add article</button>
             </form>
         </section>
-        
+
         <section class="news-list-tab">
             <form class="search-form" action="">
                 <input class="search-field" type="search" placeholder="Search">
                 <button class="">Search</button>
             </form>
             <button class="add-news-button">+ add news tab</button>
-            
+
             <table class="news-table">
                 <tr>
                     <th><button>id</button></th>
-                    <th><button>Category</button></th> 
+                    <th><button>Category</button></th>
                     <th><button>Name</button></th>
                     <th><button>Preview</button></th>
                     <th><button>Author</button></th>
@@ -52,7 +62,7 @@
                 </tr>
                 </table>
         </section>
-        
+
     </main>
   <footer class="footer">
     <ul class="footer__socials">
@@ -62,9 +72,43 @@
     </ul>
     <div class="footer__logo"></div>
   </footer>
+
+  <div class="modalWindow" id="modal-login">
+    <div class="modalWindow-content">
+        <div class="close" id="close1"></div>
+        <h2 class="modalWindow-content__header">Login</h2>
+        <div class="change">
+            no have account?
+            <button class="reg-button" id="register">Register</button>
+        </div>
+        <form class="modalWindow-content__form">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button class="modalWindow-content__button" id="close">Login</button>
+        </form>
+    </div>
+  </div>
+
+	  <div class="modalWindow" id="modal-register">
+		  <div class="modalWindow-content">
+			  <div class="close" id="close2"></div>
+        <h2 class="modalWindow-content__header">Register</h2>
+        <div class="change">
+          already have account?
+        <button class="reg-button" id="haveacc">Login</button>
+			  </div>
+        <form class="modalWindow-content__form">
+          <input type="email" placeholder="Email">
+          <input type="password" placeholder="Password">
+          <input type="password" placeholder="Confirm password">
+          <button class="modalWindow-content__button" id="close">Register</button>
+        </form>
+		  </div>
+    </div>
+
   <template class="template">
         <tr>
-            <td class="id"></td>  
+            <td class="id"></td>
             <td class="category"></td>
             <td><a class="name" href=""></a></td>
             <td class="preview"></td>
@@ -77,6 +121,7 @@
             <td><button class="edit">edit</button></td>
         </tr>
   </template>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/script.min.js"></script>
 </body>
