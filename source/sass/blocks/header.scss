@@ -1,0 +1,25 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 27px;
+	border-bottom: 1px solid #979797;
+}
+
+.header__logo {
+	margin-left: 40px;
+	width: 270px;
+	height: 46px;
+	background-color: rgba(74, 144, 226, 0.5);
+	margin-bottom: 27px;
+}
+
+.header__links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header__link {
+	margin-right: 30px;
+}
