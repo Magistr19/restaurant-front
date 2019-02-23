@@ -1,6 +1,7 @@
 ﻿'use strict';
 
 $(document).ready(function() {
+<<<<<<< HEAD
     $(".link--dropdown").click(function() {
       $(".link-categories").slideToggle();
     });
@@ -26,3 +27,32 @@ for (let i = 0; i < comments.length; i++) {
     }
   }
 }
+=======
+  $(".link--dropdown").click(function() {
+    $(".link-categories").slideToggle();
+  });
+
+  $("#login").click(function() {
+    $("#modal-login").toggle();
+  });
+
+  $("#register").click(function() {
+    $("#modal-login").toggle();
+    $("#modal-register").toggle();
+  });
+
+  $("#haveacc").click(function() {
+    $("#modal-login").toggle();
+    $("#modal-register").toggle();
+  });
+
+  $("#close1").click(function() {
+    $("#modal-login").toggle();;
+  });
+
+  $("#close2").click(function() {
+    $("#modal-register").toggle();
+  });
+
+});
+>>>>>>> 7854eb4f00f56bcfa886a48b02200e9e8bafbd33
