@@ -44,12 +44,31 @@
     margin-bottom: 10px;
 }
 
+.news__more {
+  color: $light-color;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
 .news--main {
     width: 100%;
     flex-direction: row;
 
     .news__wrapper {
         margin-left: $side-gutter;
+    }
+
+    .news__image {
+      max-width: 600px;
     }
 
     .news__header {

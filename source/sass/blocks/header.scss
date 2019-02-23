@@ -4,7 +4,7 @@
 }
 
 .header__wrapper {
-    width: $content-width;
+    max-width: $content-width;
     box-sizing: border-box;
     padding-left: $side-gutter;
     padding-right: $side-gutter;
@@ -23,6 +23,7 @@
 .header__links {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
     list-style: none;
