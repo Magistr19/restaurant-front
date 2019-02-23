@@ -32,12 +32,21 @@
             <button class="back-to-news">back to news tab</button>
             <form action="" class="add-article-form">
                 <label>Article name<input type="text"></label>
-                <input type="text">
+                <div class="category-wrapper">
+                    <label>Category
+                      <select class="categories-select">
+                      </select>
+                    </label>
+                  <label>new category<input class="new-category-name" type="text"></label>
+                  <button class="add-category">+ add category</button>
+                </div>
+
+                <label>Article picture<input type="file"></label>
                 <label>
                     Article text
                     <textarea></textarea>
                 </label>
-                <button class="" type="submit">add article</button>
+                <button class="submit-article" type="submit">add article</button>
             </form>
         </section>
 
@@ -116,13 +125,15 @@
             <td class="created"></td>
             <td class="edited"></td>
             <td><input class="is-active" type="checkbox"></td>
-            <td><input class="is-main" type="checkbox"></td>
+            <td><input class="is-main" type="radio"></td>
             <td><button class="delete">delete</button></td>
             <td><button class="edit">edit</button></td>
         </tr>
   </template>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
     <script src="js/script.min.js"></script>
+
 </body>
 </html>
