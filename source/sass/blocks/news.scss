@@ -39,6 +39,10 @@
     font-size: $font-small;
     margin-top: 0;
     margin-bottom: 0;
+    max-height: 310px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
 }
 
 .news--main {
