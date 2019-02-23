@@ -1,0 +1,23 @@
+.news {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+}
+
+.news__image {
+    img {
+    border-radius: 8px;
+    }
+}
+
+.news__header {
+    font-size: $font-large;
+}
+
+.news__description {
+    font-size: $font-small;
+}
+
+.news--main {
+    
+}
