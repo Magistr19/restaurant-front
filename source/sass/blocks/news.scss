@@ -41,8 +41,7 @@
     margin-bottom: 0;
     max-height: 310px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    // white-space: nowrap;
+    margin-bottom: 10px;
 }
 
 .news--main {
@@ -56,4 +55,8 @@
     .news__header {
         margin-bottom: 15px;
     }
+}
+
+.news__more {
+    color: blue;
 }
