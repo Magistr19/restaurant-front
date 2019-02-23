@@ -127,6 +127,10 @@ for (let i = 0; i < comments.length; i++) {
   var categoreisSelect = document.querySelector('.categories-select');
   var addCategoryButton = document.querySelector('.add-category');
   var newCategoryName = document.querySelector('.new-category-name');
+  var addArticleButton = document.querySelector('.submit-article');
+  var articleName = document.querySelector('.atricle-name');
+  var articlePicture = document.querySelector('.article-picture');
+  var articleContent = document.querySelector('.article-content');
 
   addNews.addEventListener("click", function (e) {
     e.preventDefault();
@@ -140,26 +144,26 @@ for (let i = 0; i < comments.length; i++) {
     newsListTab.classList.toggle("hidden");
   });
 
-  submitArticleButton.addEventListener("click", function(e) {
-    e.preventDefault();
-    axios.post('http://151.80.70.47/orange/public/api/create', {
-      firstName: 'Fred',
-      lastName: 'Flintstone'
-    })
-    .then(function (response) {
-      // handle success
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      console.log('always');
-      // always executed
-    });
+  // submitArticleButton.addEventListener("click", function(e) {
+  //   e.preventDefault();
+  //   axios.post('http://151.80.70.47/orange/public/api/create', {
+  //     firstName: 'Fred',
+  //     lastName: 'Flintstone'
+  //   })
+  //   .then(function (response) {
+  //     // handle success
+  //     console.log(response.data);
+  //   })
+  //   .catch(function (error) {
+  //     // handle error
+  //     console.log(error);
+  //   })
+  //   .then(function () {
+  //     console.log('always');
+  //     // always executed
+  //   });
 
-  });
+  // });
 
   newsTable.addEventListener("click", function (e) {
     if (e.target.classList.contains("delete")) {
@@ -184,6 +188,11 @@ for (let i = 0; i < comments.length; i++) {
   addCategoryButton.addEventListener("click", function(e) {
     e.preventDefault();
     addCategory(newCategoryName.value)
+  });
+
+  addArticleButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    addArticle();
   });
 
   function renderNews(tableToAppend) {
@@ -227,12 +236,12 @@ for (let i = 0; i < comments.length; i++) {
   renderNews(newsTable);
 
   function updateCategories() {
-    axios.get('http://151.80.70.47/orange/public/api/category/all')
+    axios.get('http://151.80.70.47/orange/public/api/categories')
     .then(function (response) {
       console.log(response.data);
       for(var i = 0; i < response.data.length; i++) {
         var option = document.createElement("option");
-        option.setAttribute("value", "bbb");
+        option.setAttribute("value", response.data[i].id);
         option.textContent = response.data[i].name;
         categoreisSelect.appendChild(option);
       }
@@ -246,13 +255,30 @@ for (let i = 0; i < comments.length; i++) {
 
   function addCategory(categoryName) {
     if (!categoryName) return;
-    axios.post('http://151.80.70.47/orange/public/api/category/create', {name: categoryName})
+    axios.post('http://151.80.70.47/orange/public/api/category', {name: categoryName})
     .then(function (response) {
       console.log("post category response: ", response);
     })
     .catch(function (error) {
       console.log(error);
     })
+  }
+
+  function addArticle(){
+    var data = {
+      name: articleName.value,
+      category: categoreisSelect.value,
+      picture: articlePicture.value,
+      content: articleContent.value
+    }
+    console.log(data);
+    // axios.post('http://151.80.70.47/orange/public/api/...', data)
+    // .then(function (response) {
+    //   console.log("post category response: ", response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // })
   }
 
   // addCategory();
