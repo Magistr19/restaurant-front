@@ -1,32 +1,39 @@
 .post {
 	display: flex;
 	flex-direction: column;
-    align-items: center;
-    margin: 40px 20px;
+	align-items: center;
+	width: $content-width;
+	margin-top: 60px;
+	margin-bottom: 90px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.post-image {
+.post__image {
 	width: 100%;
 	max-width: 1200px;
 	height: 800px;
-	background-color: rgba(74, 144, 226, 0.5);
-	border: 1px solid #4a90e2;
-	border-radius: 8px;
 	margin-bottom: 60px;
+
+	img {
+		border-radius: 8px;
+	}
 }
 
-.post-header {
+.post__header {
 	text-align: center;
 	font-size: 48px;
 	font-weight: bold;
 	margin-bottom: 40px;
+	margin-top: 0;
 }
 
-.post-content {
+.post__content {
 	max-width: 1200px;
-	margin-bottom: 109px;
+	margin-bottom: 0;
 	font-size: 24px;
 	line-height: 32px;
+	margin-top: 0;
 }
 
 
@@ -34,14 +41,15 @@
 .commentBlock {
 	display: flex;
 	flex-direction: column;
-	margin: 0 20px;
 	margin-bottom: 100px;
-	/*border: 1px solid black;*/
-	/*width: 100%;*/
+	width: $content-width;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .commentBlock-header {
 	text-align: center;
+	margin-top: 0;
 }
 
 .comment {
