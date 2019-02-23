@@ -10,6 +10,20 @@
     &--dropdown {
         position: relative;
         margin-right: 40px;
+        &::after{ 
+            content: '';
+            position: absolute;
+            border-color: $light-color;
+            border-width: 8px;
+            border-style: solid;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-top-width: 12px;
+            top: 20px;
+            right: -20px;
+            cursor: pointer;
+        }
     }
 
     &-categories {
@@ -28,19 +42,4 @@
             font-size: 20px;
         }
     }
-
-    &::after{ 
-            content: '';
-            position: absolute;
-            border-color: $light-color;
-            border-width: 8px;
-            border-style: solid;
-            border-bottom-color: transparent;
-            border-left-color: transparent;
-            border-right-color: transparent;
-            border-top-width: 12px;
-            top: 20px;
-            right: -20px;
-            cursor: pointer;
-        }
-}  
+}
