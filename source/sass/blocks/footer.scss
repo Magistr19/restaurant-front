@@ -1,0 +1,24 @@
+.footer {
+    display: flex;
+    align-items: center;
+    padding: 27px 40px;
+    border: 1px solid #979797;
+}
+
+.footer__socials {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer__link {
+    margin-right: 30px;
+}
+
+.footer__logo {
+    margin-left: auto;
+	width: 270px;
+	height: 46px;
+	background-color: rgba(74, 144, 226, 0.5);
+}
