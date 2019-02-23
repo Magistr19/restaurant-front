@@ -168,3 +168,19 @@
 .modal .btn {
     float: right;
 }
+
+@media (max-width: $mobile-size-max) {
+  .news {
+    width: 100%;
+  }
+
+  .news__image {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .news__header {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
