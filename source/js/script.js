@@ -125,7 +125,13 @@ for (let i = 0; i < comments.length; i++) {
     };
     if (e.target.classList.contains("edit")) {
         console.log("edit", e.target.getAttribute("data-id"));
-    }
+    };
+    if (e.target.classList.contains("is-active")) {
+      console.log("is-active", e.target.getAttribute("data-id"));
+    };
+    if (e.target.classList.contains("is-main")) {
+      console.log("is-main", e.target.getAttribute("data-id"));
+    };
   });
 
   function renderNews(tableToAppend) {
@@ -153,6 +159,8 @@ for (let i = 0; i < comments.length; i++) {
         edited.textContent = parsedResponse[i].edited;
         isActive.checked = parsedResponse[i].active;
         isMain.checked = parsedResponse[i].isMain;
+        isMain.setAttribute("data-id", parsedResponse[i].id);
+        isActive.setAttribute("data-id", parsedResponse[i].id);
         deleteArticle.setAttribute("data-id", parsedResponse[i].id);
         editArticle.setAttribute("data-id", parsedResponse[i].id);
 

@@ -57,3 +57,20 @@
 .id {
   padding: 0 5px;
 }
+
+.add-article-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-article-form label {
+  margin-bottom: 30px;
+}
+
+.back-to-news {
+  margin-bottom: 30px;
+}
+
+.submit-article {
+  align-self: flex-start;
+}
