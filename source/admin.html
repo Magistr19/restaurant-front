@@ -22,7 +22,7 @@
             <button class="back-to-news">back to news tab</button>
             <form action="" class="add-article-form">
                 <label>Article name<input type="text"></label>
-                <input type="text">
+                <input type="file">
                 <label>
                     Article text
                     <textarea></textarea>
@@ -30,18 +30,18 @@
                 <button class="" type="submit">add article</button>
             </form>
         </section>
-        
+
         <section class="news-list-tab">
             <form class="search-form" action="">
                 <input class="search-field" type="search" placeholder="Search">
                 <button class="">Search</button>
             </form>
             <button class="add-news-button">+ add news tab</button>
-            
+
             <table class="news-table">
                 <tr>
                     <th><button>id</button></th>
-                    <th><button>Category</button></th> 
+                    <th><button>Category</button></th>
                     <th><button>Name</button></th>
                     <th><button>Preview</button></th>
                     <th><button>Author</button></th>
@@ -52,7 +52,7 @@
                 </tr>
                 </table>
         </section>
-        
+
     </main>
   <footer class="footer">
     <ul class="footer__socials">
@@ -64,7 +64,7 @@
   </footer>
   <template class="template">
         <tr>
-            <td class="id"></td>  
+            <td class="id"></td>
             <td class="category"></td>
             <td><a class="name" href=""></a></td>
             <td class="preview"></td>
@@ -72,12 +72,14 @@
             <td class="created"></td>
             <td class="edited"></td>
             <td><input class="is-active" type="checkbox"></td>
-            <td><input class="is-main" type="checkbox"></td>
+            <td><input class="is-main" type="radio"></td>
             <td><button class="delete">delete</button></td>
             <td><button class="edit">edit</button></td>
         </tr>
   </template>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
     <script src="js/script.min.js"></script>
+
 </body>
 </html>
