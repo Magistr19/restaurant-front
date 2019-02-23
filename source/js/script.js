@@ -29,6 +29,25 @@ $(document).ready(function() {
 
 });
 
+axios.get('http://151.80.70.47/orange/public/api/comments')
+  .then((res) => {
+    res.data.map(item => {
+      // console.log(item)
+      $('#comments').append(`
+        <div class="comment">
+          <div class="comment__wrapper">
+            <div class="comment__desc">
+              <div class="comment__desc-avatar"></div>
+              <div class="comment__desc-header">${item.user.name}</div>
+            </div>
+            <p class="comment__content">${item.comment}</p>
+          </div>
+        </div>
+      `);
+    })
+  })
+  .catch((err) => console.log(err))
+
 //Комменты
 
 let comments = document.querySelectorAll('.comment');
