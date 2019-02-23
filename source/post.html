@@ -36,22 +36,99 @@
 	</section>
 
 	<section class="commentBlock">
-		<h2 class="commentBlock-header">Comments</h2>
-			<div class="comment">
-			<div class="comment-info">
-				<div class="comment-info__avatar"></div>
-				<div class="comment-info__header">Header</div>
-			</div>
-			<p class="comment-content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+		<h2 class="commentBlock__header">Comments</h2>
+			<div class="comment">  <!-- № 1 Один элемент коммент -->
+				<div class="comment__wrapper">
+					<div class="comment__desc">
+						<div class="comment__desc-avatar"></div>
+						<div class="comment__desc-header">Header</div>
+					</div>
+					<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+				</div>
 			</div>
 
-		<div class="comment">
-			<div class="comment-info">
-				<div class="comment-info__avatar"></div>
-				<div class="comment-info__header">Header</div>
+			<div class="comment"> <!-- № 2 Коммент содержит другой коммент, который в свою очередь содержит другой коммент и тот тоже содержит коммент -->
+				<div class="comment__wrapper">
+					<div class="comment__desc">
+						<div class="comment__desc-avatar"></div>
+						<div class="comment__desc-header">Header</div>
+					</div>
+					<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+				</div>
+				<div class="comment">
+					<div class="comment__wrapper">
+						<div class="comment__desc">
+							<div class="comment__desc-avatar"></div>
+							<div class="comment__desc-header">Header</div>
+						</div>
+						<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+					</div>
+					<div class="comment">
+						<div class="comment__wrapper">
+							<div class="comment__desc">
+								<div class="comment__desc-avatar"></div>
+								<div class="comment__desc-header">Header</div>
+							</div>
+							<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+						</div>
+						<div class="comment">
+							<div class="comment__wrapper">
+								<div class="comment__desc">
+									<div class="comment__desc-avatar"></div>
+									<div class="comment__desc-header">Header</div>
+								</div>
+								<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<p class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
-		</div>
+
+			<div class="comment"> <!-- Коммент который содержит внутри себя два соседних комента, первый который содержит еще один коммент -->
+				<div class="comment__wrapper">
+					<div class="comment__desc">
+						<div class="comment__desc-avatar"></div>
+						<div class="comment__desc-header">Header</div>
+					</div>
+					<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+				</div>
+				<div class="comment">
+					<div class="comment__wrapper">
+						<div class="comment__desc">
+							<div class="comment__desc-avatar"></div>
+							<div class="comment__desc-header">Header</div>
+						</div>
+						<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+					</div>
+					<div class="comment">
+						<div class="comment__wrapper">
+							<div class="comment__desc">
+								<div class="comment__desc-avatar"></div>
+								<div class="comment__desc-header">Header</div>
+							</div>
+							<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+						</div>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="comment__wrapper">
+						<div class="comment__desc">
+							<div class="comment__desc-avatar"></div>
+							<div class="comment__desc-header">Header</div>
+						</div>
+						<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="comment__wrapper">
+						<div class="comment__desc">
+							<div class="comment__desc-avatar"></div>
+							<div class="comment__desc-header">Header</div>
+						</div>
+						<p class="comment__content">Lorem ipsum dolor sit amet, consectetur dipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores obis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolorem id et ab. Beatae eum asperiores nobis tempore, sunt aperiam, voluptates doloribus quis, explicabo alias mollitia sed recusandae itaque. Vel.</p>
+					</div>
+				</div>
+			</div>
 	</section>
 	
 	<footer class="footer">
@@ -69,6 +146,7 @@
 
 	<div class="modalWindow" id="modal-login">
 			<div class="modalWindow-content">
+				<div class="close" id="close1"></div>
 			  <h2 class="modalWindow-content__header">Login</h2>
 			  <div class="change">
 				  no have account?
@@ -84,6 +162,7 @@
 	  
 		  <div class="modalWindow" id="modal-register">
 			  <div class="modalWindow-content">
+				<div class="close" id="close2"></div>
 				<h2 class="modalWindow-content__header">Register</h2>
 				<div class="change">
 					already have account?
