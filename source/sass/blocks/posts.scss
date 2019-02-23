@@ -1,8 +1,23 @@
+.posts {
+    width: $content-width;
+    box-sizing: border-box;
+    padding-left: $side-gutter;
+    padding-right: $side-gutter;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
 .posts__list {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin-left: -$side-gutter;
+}
+
+.posts__items {
+    margin-left: $side-gutter;
 }

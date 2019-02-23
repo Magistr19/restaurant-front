@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 270px;
+    margin-top: 60px;
 }
 
 .news__image {
@@ -12,12 +13,43 @@
 
 .news__header {
     font-size: $font-large;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+    a {
+        color: $base-color;
+        text-decoration: none;
+        transition: opacity 0.2s ease-in;
+
+        &:hover,
+        &:focus {
+            opacity: 0.8;
+        }
+
+        &:active {
+            opacity: 0.6;
+        }
+    }
 }
 
 .news__description {
     font-size: $font-small;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .news--main {
-    
+    width: 100%;
+    flex-direction: row;
+
+    .news__wrapper {
+        margin-left: $side-gutter;
+    }
+
+    .news__header {
+        margin-bottom: 15px;
+    }
 }
