@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Новости одесских ресторанов</title>
+  <link rel="preload" href="scc/style.min.css" as="style">
+  <link rel="stylesheet" type="text/css" href="css/style.min.css">
+</head>
+<body class="no-js">
+  <header class="header">
+    <div class="header__logo"></div>
+		<ul class="header__links">
+			<li class="link header__link"><a href="#">Category</a></li>
+			<li class="link header__link"><a href="#">About</a></li>
+			<li class="link header__link"><a href="#">Signup/Login</a></li>
+		</ul>
+  </header>
+    <main class="admin-main">
+        <section class="add-article-tab  hidden">
+            <button class="back-to-news">back to news tab</button>
+            <form action="" class="add-article-form">
+                <label>Article name<input type="text"></label>
+                <input type="text">
+                <label>
+                    Article text
+                    <textarea></textarea>
+                </label>
+                <button class="" type="submit">add article</button>
+            </form>
+        </section>
+        
+        <section class="news-list-tab">
+            <form class="search-form" action="">
+                <input class="search-field" type="search" placeholder="Search">
+                <button class="">Search</button>
+            </form>
+            <button class="add-news-button">+ add news tab</button>
+            
+            <table class="news-table">
+                <tr>
+                    <th><button>id</button></th>
+                    <th><button>Category</button></th> 
+                    <th><button>Name</button></th>
+                    <th><button>Preview</button></th>
+                    <th><button>Author</button></th>
+                    <th><button>Created</button></th>
+                    <th><button>Edited</button></th>
+                    <th><button>Active</button></th>
+                    <th><button>is Main</button></th>
+                </tr>
+                </table>
+        </section>
+        
+    </main>
+  <footer class="footer">
+    <ul class="footer__socials">
+      <li class="footer__link link"><a href="">Facebook</a></li>
+      <li class="footer__link link"><a href="">Instagram</a></li>
+      <li class="footer__link link"><a href="">Tweeter</a></li>
+    </ul>
+    <div class="footer__logo"></div>
+  </footer>
+  <template class="template">
+        <tr>
+            <td class="id"></td>  
+            <td class="category"></td>
+            <td><a class="name" href=""></a></td>
+            <td class="preview"></td>
+            <td class="author"></td>
+            <td class="created"></td>
+            <td class="edited"></td>
+            <td><input class="is-active" type="checkbox"></td>
+            <td><input class="is-main" type="checkbox"></td>
+            <td><button class="delete">delete</button></td>
+            <td><button class="edit">edit</button></td>
+        </tr>
+  </template>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/script.min.js"></script>
+</body>
+</html>
