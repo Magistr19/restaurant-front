@@ -11,7 +11,7 @@
     display: none;
 
     &-content {
-    	min-width: 350px;
+    min-width: 350px;
 		background-color: white;
 		position: fixed;
 		top: 50%;
@@ -32,17 +32,24 @@
         &__form {
             display: flex;
             flex-direction: column;
+        }
 
-            input {
-                border: 1px solid #e2e2e2;
-                height: 35px;
-                margin: 0 auto;
-                width: 260px;
-                border-radius: 2px;
-                padding: 5px 7px;
-                margin-bottom: 7px;
-                font-size: 17px;
-            }
+        &__input {
+            border: 1px solid #e2e2e2;
+            height: 35px;
+            margin: 0 auto;
+            width: 260px;
+            border-radius: 2px;
+            padding: 5px 7px;
+            margin-bottom: 7px;
+            font-size: 17px;
+        }
+
+        span {
+          color: red;
+          font-size: 10px;
+          margin-left: 40px;
+          margin-top: -5px;
         }
 
 		&__button {
@@ -59,7 +66,6 @@
             margin-bottom: 20px;
             text-transform: uppercase;
 			cursor: pointer;
-
 			&:hover {
                 background-color: rgba(74, 144, 226, 0.5);
 			}
@@ -126,4 +132,9 @@
 
 .close:after {
     transform: rotate(-45deg);
+}
+
+.err {
+  border: 1px solid red;
+  outline: none;
 }

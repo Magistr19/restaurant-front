@@ -180,9 +180,10 @@
             no have account?
             <button class="reg-button" id="register">Register</button>
         </div>
-        <form class="modalWindow-content__form">
-          <input type="email" placeholder="Email">
-          <input type="password" placeholder="Password">
+        <form onSubmit="login()" class="modalWindow-content__form">
+          <input id="login-email" class="modalWindow-content__input" type="email" placeholder="Email">
+          <!-- <span  class="modalWindow-content__span">invalid email</span> -->
+          <input id="login-password" class="modalWindow-content__input" type="password" placeholder="Password">
           <button class="modalWindow-content__button" id="close">Login</button>
         </form>
       </div>
@@ -196,11 +197,11 @@
               already have account?
               <button class="reg-button" id="haveacc">Login</button>
           </div>
-          <form class="modalWindow-content__form">
-            <input placeholder="Login">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Confirm password">
+          <form onSubmit="register()" class="modalWindow-content__form">
+            <input id="reg-login" class="modalWindow-content__input" placeholder="Login">
+            <input id="reg-email" class="modalWindow-content__input" type="email" placeholder="Email">
+            <input id="reg-password" class="modalWindow-content__input" type="password" placeholder="Password">
+            <input id="reg-confPassword" class="modalWindow-content__input" type="password" placeholder="Confirm password">
             <button class="modalWindow-content__button">Register</button>
           </form>
         </div>

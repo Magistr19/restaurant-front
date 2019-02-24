@@ -28,6 +28,26 @@ $(document).ready(function() {
   });
 });
 
+function login() {
+  var data = {
+    login: $('#login-email').val(),
+    password: $('#login-password').val()
+  };
+
+  console.log(data);
+}
+
+function register() {
+  var data = {
+    login: $('#reg-login').val(),
+    email: $('#reg-email').val(),
+    password: $('#reg-password').val(),
+    confPassword: $('#reg-confPassword').val()
+  };
+
+  console.log(data);
+}
+
 axios.get('http://151.80.70.47/orange/public/api/comments')
   .then((res) => {
     res.data.map(item => {
