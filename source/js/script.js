@@ -343,7 +343,7 @@ for (let i = 0; i < comments.length; i++) {
 
   function addCategory(categoryName) {
     if (!categoryName) return;
-    axios.post('http://hackathon.xx.org.ua/api/category', {name: categoryName})
+    axios.post('http://hackathon.xx.org.ua/api/admin/category', {name: categoryName})
     .then(function (response) {
       // console.log("post category response: ", response);
     })
