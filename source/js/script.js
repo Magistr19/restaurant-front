@@ -47,6 +47,17 @@ axios.get('http://151.80.70.47/orange/public/api/comments')
   })
   .catch((err) => console.log(err))
 
+  axios.get('http://151.80.70.47/orange/public/api/categories')
+  .then((res) => {
+    res.data.map(item => {
+      // console.log(item)
+      $('.link-categories').append(`
+        <li><a href="#">${item.name}</a></li>
+      `);
+    })
+  })
+  .catch((err) => console.log(err))
+
 //Комменты
 
 let comments = document.querySelectorAll('.comment');
