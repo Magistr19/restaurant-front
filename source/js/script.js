@@ -159,21 +159,36 @@ for (let i = 0; i < comments.length; i++) {
   var addCategoryButton = document.querySelector('.add-category');
   var newCategoryName = document.querySelector('.new-category-name');
   var addArticleButton = document.querySelector('.submit-article');
+  var editArticleButton = document.querySelector('.edit-article');
   var articleName = document.querySelector('.atricle-name');
   var articlePicture = document.querySelector('.article-picture');
   var articleContent = document.querySelector('.article-content');
+  // var articleContent = document.querySelector('.trumbowyg-editor');
   var articleImage = document.querySelector(".article-image");
 
   addNews.addEventListener("click", function (e) {
     e.preventDefault();
+    articleName.value = "";
+    articleContent.value = "";
+    categoreisSelect.selectedIndex = 0;
+
     addNewsTab.classList.toggle("hidden");
     newsListTab.classList.toggle("hidden");
+
+    editArticleButton.classList.add("hidden");
+    editArticleButton.disabled = true;
   });
 
   backToNews.addEventListener("click", function (e) {
     e.preventDefault();
     addNewsTab.classList.toggle("hidden");
     newsListTab.classList.toggle("hidden");
+
+    editArticleButton.classList.remove("hidden");
+    editArticleButton.disabled = false;
+
+    submitArticleButton.classList.remove("hidden");
+    submitArticleButton.disabled = false;
   });
 
   newsTable.addEventListener("click", function (e) {
@@ -187,18 +202,21 @@ for (let i = 0; i < comments.length; i++) {
         addNewsTab.classList.toggle("hidden");
         newsListTab.classList.toggle("hidden");
 
-        axios.get('http://151.80.70.47/orange/public/api/news/' + articleURL)
+        axios.get('http://hackathon.xx.org.ua/api/news/' + e.target.getAttribute('data-url'))
           .then(function (response) {
-            console.log(response.data);
+
+            editArticleButton.setAttribute('data-url', e.target.getAttribute('data-url'));
+            console.log(response.data[0]);
+            articleName.value = response.data[0].name;
+            articleContent.value = response.data[0].content;
+            categoreisSelect.selectedIndex = response.data[0].category_id - 1;
           })
         .catch(function (error) {
           console.log(error);
         })
-        articleName.value = "x";
-        articleContent.value = "xx";
-        // categoreisSelect.selectedIndex = 4; //categoreisSelect.value
-        articleImage.src = "";
 
+        submitArticleButton.classList.add("hidden");
+        submitArticleButton.disabled = true;
 
     };
     if (e.target.classList.contains("is-active")) {
@@ -226,6 +244,11 @@ for (let i = 0; i < comments.length; i++) {
     addArticle();
   });
 
+  editArticleButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    editArticle(editArticleButton.getAttribute('data-id'));
+  });
+
   articlePicture.addEventListener("change", function(e) {
     addArticleImage();
   });
@@ -245,7 +268,7 @@ for (let i = 0; i < comments.length; i++) {
       var deleteArticle = tr.querySelector(".delete");
       var editArticle = tr.querySelector(".edit");
 
-    axios.get('http://151.80.70.47/orange/public/api/news?sort_field=name&sort_type=desc&limit=15')
+    axios.get('http://hackathon.xx.org.ua/api/news?sort_field=name&sort_type=desc&limit=15')
     .then(function (response) {
       console.log("get response: ", response.data);
       var parsedResponse = response.data;
@@ -255,7 +278,7 @@ for (let i = 0; i < comments.length; i++) {
     for (var i = 0; i < parsedResponse.length; i++) {
         id.textContent = parsedResponse[i].id;
         newName.textContent = parsedResponse[i].name;
-        newName.href = "http://151.80.70.47/orange/public/api/news/" + parsedResponse[i].url;
+        newName.href = "http://hackathon.xx.org.ua/api/news/" + parsedResponse[i].url;
         category.textContent = parsedResponse[i].category_id;
         preview.textContent = parsedResponse[i].preview;
         author.textContent = parsedResponse[i].user_create_id;
@@ -269,7 +292,7 @@ for (let i = 0; i < comments.length; i++) {
         isMain.setAttribute("data-id", parsedResponse[i].id);
         isActive.setAttribute("data-id", parsedResponse[i].id);
         deleteArticle.setAttribute("data-id", parsedResponse[i].id);
-        editArticle.setAttribute("data-id", parsedResponse[i].id);
+        editArticle.setAttribute("data-url", parsedResponse[i].url);
 
         var clone = document.importNode(template.content, true);
         tableToAppend.appendChild(clone);
@@ -285,9 +308,9 @@ for (let i = 0; i < comments.length; i++) {
   renderNews(newsTable);
 
   function updateCategories() {
-    axios.get('http://151.80.70.47/orange/public/api/categories')
+    axios.get('http://hackathon.xx.org.ua/api/categories')
     .then(function (response) {
-      console.log(response.data);
+      // console.log(response.data);
       for(var i = 0; i < response.data.length; i++) {
         var option = document.createElement("option");
         option.setAttribute("value", response.data[i].id);
@@ -304,7 +327,27 @@ for (let i = 0; i < comments.length; i++) {
 
   function addCategory(categoryName) {
     if (!categoryName) return;
-    axios.post('http://151.80.70.47/orange/public/api/category', {name: categoryName})
+    axios.post('http://hackathon.xx.org.ua/api/category', {name: categoryName})
+    .then(function (response) {
+      // console.log("post category response: ", response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
+
+  function addArticle(){
+    var url = translit(articleName.value);
+    var data = {
+      name: articleName.value,
+      category_id: categoreisSelect.value,
+      content: articleContent.value,
+      image: pictureDataUrl,
+      url: url
+    }
+
+    console.log(data);
+    axios.post('http://hackathon.xx.org.ua/api/admin/news/create', data)
     .then(function (response) {
       console.log("post category response: ", response);
     })
@@ -313,22 +356,20 @@ for (let i = 0; i < comments.length; i++) {
     })
   }
 
-  function addArticle(){
+  function editArticle(id) {
     var data = {
+      id: id,
       name: articleName.value,
-      category: categoreisSelect.value,
       content: articleContent.value,
-      picture: pictureDataUrl
-    }
-
-    console.log(data);
-    // axios.post('http://151.80.70.47/orange/public/api/...', data)
-    // .then(function (response) {
-    //   console.log("post category response: ", response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // })
+      category_id: categoreisSelect.value
+    };
+    axios.put('http://hackathon.xx.org.ua/api/admin/news/update', data)
+    .then(function (response) {
+      console.log("put category response: ", response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
   }
 
   function addArticleImage() {
@@ -342,6 +383,14 @@ for (let i = 0; i < comments.length; i++) {
     }
   }
 
-  $('.article-content').trumbowyg();
+  // $('.article-content').trumbowyg();
+
+  var chars = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya', 'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'YO', 'Ж': 'ZH', 'З': 'Z', 'И': 'I', 'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N', 'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U', 'Ф': 'F', 'Х': 'H', 'Ц': 'C', 'Ч': 'CH', 'Ш': 'SH', 'Щ': 'SHCH', 'Ъ': '', 'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'YU', 'Я': 'YA'};
+  function translit(text) {
+    for (var i in chars) {
+      text = text.replace(new RegExp(i, 'g'), chars[i]);
+    }
+    return text;
+  }
 
 }());
