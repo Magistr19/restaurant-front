@@ -1444,7 +1444,6 @@ body.trumbowyg-body-fullscreen {
   height: 180px;
   overflow: hidden; }
   .news__image img {
-    width: 100%;
     height: auto;
     border-radius: 8px; }
 
@@ -1493,6 +1492,8 @@ body.trumbowyg-body-fullscreen {
     .news--main .news__image img {
       width: auto;
       display: block; }
+  .news--main .news__description {
+    max-width: 500px; }
   .news--main .news__header {
     margin-bottom: 15px; }
 
@@ -1521,7 +1522,7 @@ body.trumbowyg-body-fullscreen {
       margin-left: 0; }
     .news--main .news__description {
       text-align: center;
-      max-width: 300px; } }
+      max-width: none; } }
 
 /* Стили для неактивного модального окна */
 .modal {

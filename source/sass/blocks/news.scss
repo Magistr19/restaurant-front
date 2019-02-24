@@ -10,7 +10,6 @@
   height: 180px;
   overflow: hidden;
     img {
-    width: 100%;
     height: auto;
     border-radius: 8px;
     }
@@ -82,6 +81,10 @@
       }
     }
 
+    .news__description {
+      max-width: 500px;
+    }
+
     .news__header {
         margin-bottom: 15px;
     }
@@ -125,7 +128,7 @@
 
     .news__description {
       text-align: center;
-      max-width: 300px;
+      max-width: none;
     }
   }
 }
