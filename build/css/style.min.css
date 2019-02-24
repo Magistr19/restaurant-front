@@ -1074,7 +1074,8 @@ body.trumbowyg-body-fullscreen {
 .back-to-news {
   margin-bottom: 30px; }
 
-.submit-article {
+.submit-article,
+.edit-article {
   align-self: flex-start; }
 
 .category-wrapper {
