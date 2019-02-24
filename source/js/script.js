@@ -195,6 +195,7 @@ for (let i = 0; i < comments.length; i++) {
     if (e.target.classList.contains("delete")) {
         console.log("delete", e.target.getAttribute("data-id"));
         e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
+        deleteArticle(e.target.getAttribute("data-id"));
     };
     if (e.target.classList.contains("edit")) {
         console.log("edit", e.target.getAttribute("data-id"));
@@ -220,6 +221,7 @@ for (let i = 0; i < comments.length; i++) {
 
     };
     if (e.target.classList.contains("is-active")) {
+      toggleActive(e.target.getAttribute("data-id"));
       console.log("is-active", e.target.getAttribute("data-id"));
     };
     if (e.target.classList.contains("is-main")) {
@@ -228,11 +230,24 @@ for (let i = 0; i < comments.length; i++) {
 
       if (exIsMain === e.target) { return };
       e.target.classList.add("is-main-checkbox");
+      makeMain(e.target.getAttribute("data-id"));
       if (!exIsMain) {return}
       exIsMain.checked = false;
       exIsMain.classList.remove("is-main-checkbox");
     };
   });
+
+  function deleteArticle(id) {
+    console.log(JSON.stringify({article_id: id}));
+    // axios.delete('http://hackathon.xx.org.ua/api/admin/news/delete', { data: {article_id: id} })
+    axios.delete('http://hackathon.xx.org.ua/api/admin/news/delete/' + id)
+      .then(function (response) {
+        console.log(response)
+      })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
 
   addCategoryButton.addEventListener("click", function(e) {
     e.preventDefault();
@@ -246,7 +261,7 @@ for (let i = 0; i < comments.length; i++) {
 
   editArticleButton.addEventListener("click", function(e) {
     e.preventDefault();
-    editArticle(editArticleButton.getAttribute('data-id'));
+    editArticleFunc(editArticleButton.getAttribute('data-id'));
   });
 
   articlePicture.addEventListener("change", function(e) {
@@ -268,12 +283,12 @@ for (let i = 0; i < comments.length; i++) {
       var deleteArticle = tr.querySelector(".delete");
       var editArticle = tr.querySelector(".edit");
 
-    axios.get('http://hackathon.xx.org.ua/api/news?sort_field=name&sort_type=desc&limit=15')
+    axios.get('http://hackathon.xx.org.ua/api/admin/news?sort_field=name&sort_type=desc&limit=31')
     .then(function (response) {
       console.log("get response: ", response.data);
       var parsedResponse = response.data;
 
-
+      // http://hackathon.xx.org.ua/api/news?sort_field=name&sort_type=desc&limit=31
 
     for (var i = 0; i < parsedResponse.length; i++) {
         id.textContent = parsedResponse[i].id;
@@ -336,6 +351,7 @@ for (let i = 0; i < comments.length; i++) {
     })
   }
 
+  //
   function addArticle(){
     var url = translit(articleName.value);
     var data = {
@@ -356,7 +372,29 @@ for (let i = 0; i < comments.length; i++) {
     })
   }
 
-  function editArticle(id) {
+  function toggleActive(id) {
+    console.log(id);
+    axios.put('http://hackathon.xx.org.ua/api/admin/news/update/active-status/' + id)
+    .then(function (response) {
+      console.log("active response: ", response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
+
+  function makeMain(id) {
+    console.log(id);
+    axios.post('http://hackathon.xx.org.ua/api/admin/news/update/main/' + id)
+    .then(function (response) {
+      console.log("active response: ", response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
+
+  function editArticleFunc(id) {
     var data = {
       id: id,
       name: articleName.value,
