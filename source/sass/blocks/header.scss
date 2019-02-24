@@ -18,7 +18,16 @@
 .header__logo {
 	width: 270px;
 	height: 46px;
-	margin-bottom: 27px;
+  margin-bottom: 27px;
+  // background-color: red;
+  // color: red;
+  background-image: url('../img/119.jpg');
+  background-repeat: no-repeat;
+  background-position: 0, 0;
+
+  a {
+    display: block;
+  }
 }
 
 .header__links {

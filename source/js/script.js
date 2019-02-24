@@ -26,7 +26,6 @@ $(document).ready(function() {
   $("#close2").click(function() {
     $("#modal-register").toggle();
   });
-
 });
 
 axios.get('http://151.80.70.47/orange/public/api/comments')
@@ -43,6 +42,17 @@ axios.get('http://151.80.70.47/orange/public/api/comments')
             <p class="comment__content">${item.comment}</p>
           </div>
         </div>
+      `);
+    })
+  })
+  .catch((err) => console.log(err))
+
+  axios.get('http://151.80.70.47/orange/public/api/categories')
+  .then((res) => {
+    res.data.map(item => {
+      // console.log(item)
+      $('.link-categories').append(`
+        <li><a href="#">${item.name}</a></li>
       `);
     })
   })
@@ -311,5 +321,7 @@ for (let i = 0; i < comments.length; i++) {
       reader.readAsDataURL(articlePicture.files[0]);
     }
   }
+
+  $('.article-content').trumbowyg();
 
 }());

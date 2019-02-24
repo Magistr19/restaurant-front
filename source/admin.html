@@ -12,14 +12,14 @@
     <header class="header">
         <div class="header__wrapper">
             <div class="header__logo">
-                <img src="img/270x46.jpg" alt="Лого">
+              <a href="/">
+                <img src="img/logo.jpg" alt="Лого">
+              </a>
             </div>
             <ul class="header__links">
                 <li class="link link--dropdown header__link">
                     <a href="#">Category</a>
                     <ul class="link-categories">
-                        <li><a href="#">category</a></li>
-                        <li><a href="#">catrgory</a></li>
                     </ul>
                 </li>
                 <li class="link header__link"><a href="#">About</a></li>
@@ -28,6 +28,8 @@
         </div>
     </header>
     <main class="admin-main">
+
+
         <section class="add-article-tab  hidden">
             <button class="back-to-news">back to news tab</button>
             <form action="" class="add-article-form" enctype="multipart/form-data" method="POST">
@@ -38,7 +40,7 @@
                       </select>
                     </label>
                   <label>new category<input class="new-category-name" type="text"></label>
-                  <button class="add-category">+ add category</button>
+                  <button class="add-category button-custom">+ add category</button>
                 </div>
 
                 <label>Article picture<input class="article-picture" type="file" accept="image/x-png,image/gif,image/jpeg"></label>
@@ -49,11 +51,14 @@
                 </label>
                 <button class="submit-article" type="submit">add article</button>
             </form>
+
         </section>
+
+
 
         <section class="news-list-tab">
             <form class="search-form" action="">
-                <input class="search-field" type="search" placeholder="Search">
+                <input class="search-field input-custom" type="search" placeholder="Search">
                 <button class="">Search</button>
             </form>
             <button class="add-news-button">+ add news tab</button>
@@ -74,14 +79,18 @@
         </section>
 
     </main>
-  <footer class="footer">
-    <ul class="footer__socials">
-      <li class="footer__link link"><a href="">Facebook</a></li>
-      <li class="footer__link link"><a href="">Instagram</a></li>
-      <li class="footer__link link"><a href="">Tweeter</a></li>
-    </ul>
-    <div class="footer__logo"></div>
-  </footer>
+    <footer class="footer">
+        <div class="footer__wrapper">
+          <ul class="footer__socials">
+            <li class="footer__link link"><a href="">Facebook</a></li>
+            <li class="footer__link link"><a href="">Instagram</a></li>
+            <li class="footer__link link"><a href="">Tweeter</a></li>
+          </ul>
+          <div class="footer__logo">
+            <img src="img/logo.jpg" alt="Логотип">
+          </div>
+        </div>
+      </footer>
 
   <div class="modalWindow" id="modal-login">
     <div class="modalWindow-content">
@@ -108,6 +117,7 @@
         <button class="reg-button" id="haveacc">Login</button>
 			  </div>
         <form class="modalWindow-content__form">
+          <input placeholder="Login">
           <input type="email" placeholder="Email">
           <input type="password" placeholder="Password">
           <input type="password" placeholder="Confirm password">
@@ -133,8 +143,7 @@
   </template>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+    <script src="js/trumbowyg.min.js"></script>
     <script src="js/script.min.js"></script>
-
 </body>
 </html>

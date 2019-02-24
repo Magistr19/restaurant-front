@@ -5,7 +5,7 @@
     padding: 25px 0px;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.4);
     z-index: 20;
     white-space: nowrap;
     display: none;
@@ -23,7 +23,7 @@
 		box-shadow: 0 0 10px rgba(0,0,0,0.5);
 		padding: 0px 25px;
         padding-top: 15px;
-        
+
         &__header {
             margin-top: 10px;
             margin-left: 40px;
@@ -87,7 +87,7 @@
 	margin-top: 20px;
 	cursor: pointer;
     margin-left: 10px;
-    
+
     &:hover {
         background-color: rgba(74, 144, 226, 0.5);
     }
@@ -96,12 +96,12 @@
 .close {
     display: block;
     position: absolute;
-    right: 8px;
-	top: 5px;
+    right: -35px;
+	top: 0;
 	width: 30px;
 	height: 30px;
     cursor: pointer;
-    
+
     :hover {
         opacity: 1;
     }
@@ -110,14 +110,14 @@
 .close:hover {
     opacity: 1;
 }
-    
+
 .close:before, .close:after {
     position: absolute;
     left: 15px;
     content: ' ';
     height: 33px;
     width: 2px;
-    background-color: black;    
+    background-color: black;
 }
 
 .close:before {

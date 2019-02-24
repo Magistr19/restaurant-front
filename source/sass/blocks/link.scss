@@ -5,6 +5,7 @@
     a {
         color: $light-color;
         text-decoration: none;
+        // background-color: white;
     }
 
     &--dropdown {
@@ -45,6 +46,23 @@
 }
 
 @media (max-width: $tablet-size-max) {
+    .link {
+      li {
+        margin: 0px;
+        a {
+          font-size: 18px;
+          color: white;
+          background-color: lighten($light-color, 4);
+        }
+      }
+   }
+
+  .link-categories {
+    position: relative;
+    padding: 0;
+   }
+
+
   .link {
 
     a {
