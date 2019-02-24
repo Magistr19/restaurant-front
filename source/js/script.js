@@ -1,5 +1,5 @@
 ﻿'use strict';
-
+console.log("adfadf", window.location.href);
 $(document).ready(function() {
   $(".link--dropdown").click(function() {
     $(".link-categories").slideToggle();
@@ -397,7 +397,7 @@ for (let i = 0; i < comments.length; i++) {
 
   function editArticleFunc(id) {
     var data = {
-      id: id,
+      article_id: id,
       name: articleName.value,
       content: articleContent.value,
       category_id: categoreisSelect.value

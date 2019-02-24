@@ -9,7 +9,7 @@ axios.get('http://hackathon.xx.org.ua/api/news?sort_field=name&sort_type=desc&li
         </div>
         <div class="news__wrapper">
           <h3 class="news__header">
-            <a href="/post.html">${item.name}</a>
+            <a href="/post.html/${item.id}">${item.name}</a>
           </h3>
           <p class="news__description">${item.content}</p>
           <a class="news__more" href="#">read more..</a>
