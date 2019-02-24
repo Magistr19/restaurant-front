@@ -48,7 +48,7 @@ function register() {
   console.log(data);
 }
 
-axios.get('http://151.80.70.47/orange/public/api/comments')
+axios.get('http://hackathon.xx.org.ua/api/comments')
   .then((res) => {
     res.data.map(item => {
       // console.log(item)
@@ -67,7 +67,7 @@ axios.get('http://151.80.70.47/orange/public/api/comments')
   })
   .catch((err) => console.log(err))
 
-  axios.get('http://151.80.70.47/orange/public/api/categories')
+  axios.get('http://hackathon.xx.org.ua/api/categories')
   .then((res) => {
     res.data.map(item => {
       // console.log(item)
