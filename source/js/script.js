@@ -48,6 +48,7 @@ function register() {
   console.log(data);
 }
 
+
 axios.get('http://hackathon.xx.org.ua/api/comments')
   .then((res) => {
     res.data.map(item => {

@@ -1014,6 +1014,14 @@ body.trumbowyg-body-fullscreen {
 .trumbowyg-dark .trumbowyg-overlay {
   background-color: rgba(15, 15, 15, 0.6); }
 
+.about {
+  width: 1280px;
+  box-sizing: border-box;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: auto;
+  margin-right: auto; }
+
 .admin-main {
   width: 1200;
   margin: 0 auto;
