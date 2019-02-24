@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
 });
 
-function login() {
+function login(e) {
   var data = {
     login: $('#login-email').val(),
     password: $('#login-password').val()
