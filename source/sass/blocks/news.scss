@@ -6,7 +6,11 @@
 }
 
 .news__image {
+  width: 270px;
+  height: 180px;
+  overflow: hidden;
     img {
+    height: auto;
     border-radius: 8px;
     }
 }
@@ -68,7 +72,17 @@
     }
 
     .news__image {
+      width: 600px;
       max-width: 600px;
+      height: auto;
+      img {
+        width: auto;
+        display: block;
+      }
+    }
+
+    .news__description {
+      max-width: 500px;
     }
 
     .news__header {
@@ -114,6 +128,7 @@
 
     .news__description {
       text-align: center;
+      max-width: none;
     }
   }
 }
